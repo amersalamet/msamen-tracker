@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>All Sales</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Item</th>
+      <th>Amount</th>
+      <th>Client</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for sale in sales %}
+    <tr>
+      <td>{{ sale['date'] }}</td>
+      <td>{{ sale['item'] }}</td>
+      <td>{{ sale['amount'] }}</td>
+      <td>{{ sale['client'] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if sales|length == 0 %}
+<p>No sales recorded yet.</p>
+{% endif %}
+
+{% endblock %}
