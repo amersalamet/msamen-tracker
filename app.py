@@ -57,11 +57,13 @@ def add_expense():
 @app.route('/summary')
 def summary():
     conn = get_db_connection()
-    sales = conn.execute('SELECT SUM(amount) as total_sales FROM sales').fetchone()['total_sales']*20
-    expenses = conn.execute('SELECT SUM(cost) as total_expenses FROM expenses').fetchone()['total_expenses']
+    sales = conn.execute('SELECT SUM(amount) as total_sales FROM sales').fetchone()['total_sales'] or 0
+    sales = sales*20
+    expenses = conn.execute('SELECT SUM(cost) as total_expenses FROM expenses').fetchone()['total_expenses'] or 0
     conn.close()
     profit = (sales or 0) - (expenses or 0)
     return render_template('view_summary.html', sales=sales, expenses=expenses, profit=profit)
+    
 @app.route('/delete_sales', methods=['POST'])
 def delete_sales():
     conn = get_db_connection()
