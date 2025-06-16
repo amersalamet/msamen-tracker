@@ -78,6 +78,13 @@ def delete_expenses():
     conn.commit()
     conn.close()
     return redirect('/')
+@app.route('/all_sales')
+def all_sales():
+    conn = get_db_connection()
+    sales = conn.execute('SELECT * FROM sales ORDER BY date DESC').fetchall()
+    conn.close()
+    return render_template('all_sales.html', sales=sales)
+
 
 import os
 
