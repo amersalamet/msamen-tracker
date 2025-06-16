@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-4">Add a Sale</h2>
+  <form method="post">
+
+    <div class="mb-3">
+      <label class="form-label">Item</label>
+      <select name="item" class="form-select" required>
+        <option value="">-- Select an item --</option>
+        <option value="MSAMEN">MSAMEN</option>
+        <option value="KROKI">KROKI</option>
+        <option value="BASBOUSSA">BASBOUSSA</option>
+        <option value="BAGHRIR">BAGHRIR</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Amount</label>
+      <input type="number" step="0.01" name="amount" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Client</label>
+      <input type="text" name="client" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Sale</button>
+
+  </form>
+</div>
+{% endblock %}

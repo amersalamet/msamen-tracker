@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-4">Business Summary</h2>
+
+  <div class="mb-3">
+    <p><strong>Total Bi3:</strong> {{ sales or 0 }} DZD</p>
+    <p><strong>Total Makhrouj:</strong> {{ expenses or 0 }} DZD</p>
+    <p><strong>Fayda:</strong> {{ profit }} DZD</p>
+  </div>
+
+  <form action="/delete_sales" method="post" onsubmit="return confirm('Are you sure you want to delete ALL sales?');">
+    <button type="submit" class="btn btn-danger">Delete All Sales</button>
+  </form>
+</div>
+{% endblock %}
