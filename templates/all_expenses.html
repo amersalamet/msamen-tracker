@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>All expenses</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for expense in expenses %}
+    <tr>
+      <td>{{ expenses['Description'] }}</td>
+      <td>{{ expenses['Cost'] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if expenses|length == 0 %}
+<p>No expenses recorded yet.</p>
+{% endif %}
+
+{% endblock %}
