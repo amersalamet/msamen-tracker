@@ -11,10 +11,10 @@
     </tr>
   </thead>
   <tbody>
-    {% for expense in expenses %}
+    {% for expenses in expenses %}
     <tr>
-      <td>{{ expenses['Description'] }}</td>
-      <td>{{ expenses['Cost'] }}</td>
+      <td>{{ expenses['description'] }}</td>
+      <td>{{ expenses['cost'] }}</td>
     </tr>
     {% endfor %}
   </tbody>
