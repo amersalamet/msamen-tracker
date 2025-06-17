@@ -84,7 +84,11 @@ def all_sales():
     sales = conn.execute('SELECT * FROM sales ORDER BY date DESC').fetchall()
     conn.close()
     return render_template('all_sales.html', sales=sales)
-
+def all_expenses():
+    conn = get_db_connection()
+    expenses = conn.execute('SELECT * FROM expenses ORDER BY date DESC').fetchall()
+    conn.close()
+    return render_template('all_expenses.html', expenses=expenses)
 
 import os
 
