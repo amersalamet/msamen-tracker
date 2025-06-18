@@ -70,7 +70,7 @@ def delete_sales():
     conn.execute('DELETE FROM sales')
     conn.commit()
     conn.close()
-    return redirect('/summary')
+    return redirect('/all_sales')
 @app.route('/delete_expences', methods=['POST'])
 def delete_expenses():
     conn = get_db_connection()
