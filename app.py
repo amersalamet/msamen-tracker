@@ -22,7 +22,7 @@ def add_sale():
         conn.execute('INSERT INTO sales (item, amount, client) VALUES (?, ?, ?)', (item, amount, client))
         conn.commit()
         conn.close()
-        return redirect('/')
+        return redirect('/add_sale')
     return render_template('add_sale.html')
 
 @app.route('/export_sales')
@@ -70,7 +70,7 @@ def delete_sales():
     conn.execute('DELETE FROM sales')
     conn.commit()
     conn.close()
-    return redirect('/')
+    return redirect('/summary')
 @app.route('/delete_expences', methods=['POST'])
 def delete_expenses():
     conn = get_db_connection()
